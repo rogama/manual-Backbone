@@ -12,19 +12,18 @@
     <body>
         <div>TODO write content</div>
         <script>
-            //Declaramos una nueva clase con proipiedades y metodos estaticos
-            var ClaseModelo = Backbone.Model.extend({
-                                propiedadInstancia: "esta no es la que nos interesa ahora"
-                                    }, {
-                                propDeClase: "Prop estatica",
-                                metodoDeClase: function(){
-                                        alert("este es un método estático o método de clase");
-                                }
+            // Creo una clase de modelo
+            var Modelo = Backbone.Model.extend({});
+            // instancio un objeto de ese modelo para tratarlo desde Backbone
+            var objModelo = new Modelo({
+                dato: "Esto se guardará dentro del modelo"
             });
-            
-            //NO es necesario una instancia para acceder a los metodos ni propiedades estaticas de la clase
-            ClaseModelo.metodoDeClase();
-            console.log("propiedad de clase: " + ClaseModelo.propDeClase);
+            //Accedo al valor del objeto desde backbone
+            console.log(objModelo.get("dato"));
+            //actualizamos la propiedad
+            objModelo.set("dato", "nuevo valor");
+            //vuelvo a acceder a ella
+            console.log(objModelo.get("dato"));
         </script>
     </body>
 </html>
