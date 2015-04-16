@@ -11,6 +11,23 @@
     </head>
     <body>
         <div>TODO write content</div>
+        <script>
+            //creamos la clase del modelo
+            var Usuario = Backbone.Model.extend({});
+            //creamos una instancia de ese modelo
+            var miUsuario1 = new Usuario({
+                nombre: "Erick"
+            });
+            
+            //asignamos un valor a la propiedad "url"
+            miUsuario1.url = "/usuarios";
+            
+            //guardo este usuario
+            miUsuario1.save();
+            
+            //recupero datos de un usuario
+            miUsuario1.fetch();
 
+        </script>
     </body>
 </html>
