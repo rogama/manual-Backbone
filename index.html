@@ -16,11 +16,12 @@
             var objeto = {};
             //extiendo ese objeto con la clase Backbone.Events
             _.extend(objeto, Backbone.Events);
-            
-            objeto.on("mi_primer_evento", function(msg) {
-                alert("Se ha desencadenado el " + msg);
+
+            //pasando varios datos a la función manejadora
+            objeto.on("varios_datos", function(dato1, dato2){
+                alert("se produjo el evento 'varios_datos' y he recibido " + dato1 + " y " + dato2);
             });
-            objeto.trigger("mi_primer_evento", "evento que acabamos de crear.");
+            objeto.trigger("varios_datos", "valor1", "valor2");
         </script>
     </body>
 </html>
