@@ -12,16 +12,19 @@
     <body>
         <div>TODO write content</div>
         <script>
-            //creo un objeto cualquiera con Javascript, usando notación JSON
-            var objeto = {};
-            //extiendo ese objeto con la clase Backbone.Events
-            _.extend(objeto, Backbone.Events);
-
-            //pasando varios datos a la función manejadora
-            objeto.on("varios_datos", function(dato1, dato2){
-                alert("se produjo el evento 'varios_datos' y he recibido " + dato1 + " y " + dato2);
+            //creo un objeto nuevo, al que le cargo algunos datos
+            var persona = {
+                nombre: "Miguel"
+            };
+            //extiendo el objeto para que soporte eventos de backbone.js
+            _.extend(persona, Backbone.Events);
+            //asigno una función manejadora a un nuevo evento
+            persona.on("segundo_evento", function(){
+                alert("Manejador de 'segundo_evento'...");
+                alert("muestro this.nombre: " + this.nombre);
             });
-            objeto.trigger("varios_datos", "valor1", "valor2");
+            //disparo ese nuevo evento
+            persona.trigger("segundo_evento");
         </script>
     </body>
 </html>
