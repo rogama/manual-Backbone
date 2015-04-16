@@ -21,13 +21,10 @@
             //Creamos un primer objeto de la clase que acabamos de crear
             var pelicula1 = new Pelicula();
             
-            //Podemos introducir datos en el objeto como si se tratara de cualqueir otro objeto JS
-            pelicula1.titulo = "Lo que el viento se llevó";
-            //Y recuperarlos del mismo modo
-            console.log(pelicula1.titulo);
+            //Asignamos un valor del modo "correcto" para aprobechar los automatismos de Backbone
+            pelicula1.set("titulo", "Alguien voló sobre el nido del cuco");
             
-            //Esta manera de introducir/ recuperar datos aunque funcional no es recomendada, 
-            //ya que no se produciran los automatismos de los que dispone Backbone
+            pelicula1.get("titulo");
         </script>
     </body>
 </html>
