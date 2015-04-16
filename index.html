@@ -12,22 +12,15 @@
     <body>
         <div>TODO write content</div>
         <script>
-            //creamos la clase del modelo
-            var Usuario = Backbone.Model.extend({});
-            //creamos una instancia de ese modelo
-            var miUsuario1 = new Usuario({
-                nombre: "Erick"
+            //creo un objeto cualquiera con Javascript, usando notación JSON
+            var objeto = {};
+            //extiendo ese objeto con la clase Backbone.Events
+            _.extend(objeto, Backbone.Events);
+            
+            objeto.on("mi_primer_evento", function(msg) {
+                alert("Se ha desencadenado el " + msg);
             });
-            
-            //asignamos un valor a la propiedad "url"
-            miUsuario1.url = "/usuarios";
-            
-            //guardo este usuario
-            miUsuario1.save();
-            
-            //recupero datos de un usuario
-            miUsuario1.fetch();
-
+            objeto.trigger("mi_primer_evento", "evento que acabamos de crear.");
         </script>
     </body>
 </html>
