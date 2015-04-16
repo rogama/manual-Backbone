@@ -25,6 +25,11 @@
             });
             //disparo ese nuevo evento
             persona.trigger("segundo_evento");
+            
+            //"apago el segundo evento"
+            persona.off("segundo_evento");
+            //Al llamarlo despues de "apagarlo" no se ejecuta
+            persona.trigger("segundo_evento");
         </script>
     </body>
 </html>
