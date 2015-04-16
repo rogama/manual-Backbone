@@ -12,21 +12,21 @@
     <body>
         <div>TODO write content</div>
         <script>
-            // creo la clase Pelicula
-            var Pelicula = Backbone.Model.extend();
-            // creo un objeto de la clase Pelicula
-            var pelicula1 = new Pelicula();
-            // asigno una propiedad de manera habitual con Javascript
-            pelicula1.titulo = "Lo que el viento se llevó";
-            // asigno una propiedad ahora de la manera útil para aprovechar BackboneJS
-            pelicula1.set("titulo", "Alguien voló sobre el nido del cuco");
-            //muestro ambos datos y veo que son independientes
-            console.log(pelicula1.titulo);
-            console.log(pelicula1.get("titulo"));
+            //Creamos una nueva ClaseModelo, con un dato y un metodo,
+            // para que todas las instancias tengan estos valores
+            var ClaseModelo = Backbone.Model.extend({
+                dato: "Yeah!!",
+                metodo: function(){
+                    alert("funciona!!");
+                }
+            });
             
-            //Al asiganarle el valor mediante set, conseguimos serializarlo asi de sencillo
-            //entre otras cosas
-            console.log(pelicula1.toJSON());
+            //Creamos nuevo objeto de la clase anteriormente creada
+            var objClaseModelo = new ClaseModelo();
+            //mostramos su propiedad dato
+            alert(objClaseModelo.dato);
+            //ejecutamos su metodo "metodo"
+            objClaseModelo.metodo();
         </script>
     </body>
 </html>
