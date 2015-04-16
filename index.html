@@ -12,23 +12,24 @@
     <body>
         <div>TODO write content</div>
         <script>
-            //creo un objeto nuevo, al que le cargo algunos datos
-            var persona = {
-                nombre: "Miguel"
+            //creo un primer objeto
+            var fiatUno = {
+                marca: "Fiat"
             };
-            //extiendo el objeto para que soporte eventos de backbone.js
-            _.extend(persona, Backbone.Events);
-            //asigno una función manejadora a un nuevo evento
-
-            //Creamos una funcion no anonima para asociarla con un evento
-            function manejadora(){
-                alert("Estoy en la función Manejadora");
-                alert("muestro this.nombre: " + this.nombre);
+            //extiendo el objeto para que soporte eventos de Backbonejs
+            _.extend(fiatUno, Backbone.Events);
+            //creo un segundo objeto
+            var seatToledo = {
+                marca: "Seat"
+            };
+            //creo una función
+            function mostrarMarca(){
+                alert("La marca del objeto: " + this.marca);
             }
-            //Enlazamos el metodo al evento
-            persona.on("segundo_evento", manejadora);
-            //Ahora podemos eliminar esta función manejadora con off().
-            persona.off("segundo_evento", manejadora);
+            //defino un evento sobre el primer objeto, cambiando el contexto de this
+            fiatUno.on("mievento", mostrarMarca, seatToledo);
+            //disparo el evento sobre el primer objeto
+            fiatUno.trigger("mievento");
         </script>
     </body>
 </html>
