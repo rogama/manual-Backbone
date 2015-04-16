@@ -12,24 +12,19 @@
     <body>
         <div>TODO write content</div>
         <script>
-            //Creamos una nueva ClaseModelo, con un dato y un metodo,
-            // para que todas las instancias tengan estos valores
+            //Declaramos una nueva clase con proipiedades y metodos estaticos
             var ClaseModelo = Backbone.Model.extend({
-                dato: "Yeah!!",
-                metodo: function(){
-                    alert("funciona!!");
-                }
+                                propiedadInstancia: "esta no es la que nos interesa ahora"
+                                    }, {
+                                propDeClase: "Prop estatica",
+                                metodoDeClase: function(){
+                                        alert("este es un método estático o método de clase");
+                                }
             });
             
-            //Creamos nuevo objeto de la clase anteriormente creada
-            var objClaseModelo = new ClaseModelo();
-            //mostramos su propiedad dato
-            alert(objClaseModelo.dato);
-            //ejecutamos su metodo "metodo"
-            objClaseModelo.metodo();
-            
-            //Devuelve undefined ya que la propiedad "dato" esta creada de modo nativo
-            alert(objClaseModelo.get("dato"));
+            //NO es necesario una instancia para acceder a los metodos ni propiedades estaticas de la clase
+            ClaseModelo.metodoDeClase();
+            console.log("propiedad de clase: " + ClaseModelo.propDeClase);
         </script>
     </body>
 </html>
