@@ -27,6 +27,9 @@
             alert(objClaseModelo.dato);
             //ejecutamos su metodo "metodo"
             objClaseModelo.metodo();
+            
+            //Devuelve undefined ya que la propiedad "dato" esta creada de modo nativo
+            alert(objClaseModelo.get("dato"));
         </script>
     </body>
 </html>
