@@ -19,17 +19,16 @@
             //extiendo el objeto para que soporte eventos de backbone.js
             _.extend(persona, Backbone.Events);
             //asigno una función manejadora a un nuevo evento
-            persona.on("segundo_evento", function(){
-                alert("Manejador de 'segundo_evento'...");
+
+            //Creamos una funcion no anonima para asociarla con un evento
+            function manejadora(){
+                alert("Estoy en la función Manejadora");
                 alert("muestro this.nombre: " + this.nombre);
-            });
-            //disparo ese nuevo evento
-            persona.trigger("segundo_evento");
-            
-            //"apago el segundo evento"
-            persona.off("segundo_evento");
-            //Al llamarlo despues de "apagarlo" no se ejecuta
-            persona.trigger("segundo_evento");
+            }
+            //Enlazamos el metodo al evento
+            persona.on("segundo_evento", manejadora);
+            //Ahora podemos eliminar esta función manejadora con off().
+            persona.off("segundo_evento", manejadora);
         </script>
     </body>
 </html>
